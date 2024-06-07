@@ -1,7 +1,7 @@
 <template>
   <div :class="['container', size]">
     <!-- 根据 formType 显示登录或注册表单 -->
-    <form v-if="formType === 'login' || formType === undefined" @submit.prevent="submitForm(formData, handleLogin)" class="form">
+    <form v-if="formType === 'login' || formType === undefined" @submit.prevent="submitForm(formData,'login')" class="form">
       <div class="form-group">
         <label for="username">Username:</label>
         <input v-model="formData.username" type="text" id="username" @input="validateUsername" required>
@@ -17,7 +17,7 @@
       <button type="submit" :disabled="usernameError || passwordError">Login</button>
     </form>
 
-    <form v-else-if="formType === 'register'" @submit.prevent="submitForm(formData, handleRegister)" class="form">
+    <form v-else-if="formType === 'register'" @submit.prevent="submitForm(formData, 'register')" class="form">
       <div class="form-group">
         <label for="username">Username:</label>
         <input v-model="formData.username" type="text" id="username" @input="validateUsername" required>
